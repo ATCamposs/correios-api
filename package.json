@@ -7,5 +7,8 @@
     "jsdom": "^17.0.0",
     "nanoexpress": "^5.1.0"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "type": "module"
 }

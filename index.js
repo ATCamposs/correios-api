@@ -7,9 +7,7 @@ const app = nanoexpress();
 app.get('/code/:code', async (req, res) => {
     let trackingCode = req.params.code;
     try {
-        const { data } = await axios.get(`https://www.linkcorreios.com.br/${trackingCode}`).catch(error => {
-          throw error;
-        })
+        const { data } = await axios.get(`https://www.linkcorreios.com.br/${trackingCode}`)
         const dom = new JSDOM(data, {
           runScripts: "dangerously",
           resources: "usable"
@@ -27,4 +25,4 @@ app.get('/code/:code', async (req, res) => {
 
 });
 
-app.listen(80, '0.0.0.0');
+app.listen(process.env.PORT || 3000, '0.0.0.0');
