@@ -18,6 +18,7 @@ app.get('/code/:code', async (req, res) => {
             date: document.querySelector('.linha_status li:nth-child(2)').innerHTML.replace('Data  : ', '').replace(' | Hora:', ''),
             local: document.querySelector('.linha_status li:nth-child(3)').innerHTML.replace('Local: ', '')
         };
+        res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
         return res.send(JSON.stringify(firstResponseCardTracking));
       } catch (error) {
         throw error;
