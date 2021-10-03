@@ -7,7 +7,9 @@ const app = nanoexpress();
 app.get('/code/:code', async (req, res) => {
     let trackingCode = req.params.code;
     try {
-        const { data } = await axios.get(`https://www.linkcorreios.com.br/${trackingCode}`);
+        const { data } = await axios.get(`https://www.linkcorreios.com.br/${trackingCode}`).catch(error => {
+          throw error;
+        })
         const dom = new JSDOM(data, {
           runScripts: "dangerously",
           resources: "usable"
